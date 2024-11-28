@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculadoraBase\CalculadoraBase.cs" />
     <Compile Include="Empleado\Empleado.cs" />
+    <Compile Include="Operaciones\IOperaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ventas\Venta.cs" />
