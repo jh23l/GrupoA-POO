@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GrupoA_POO.CalculadoraBase
 {
-    abstract class CalculadoraBase : IOperaciones
+    public abstract class CalculadoraBase : IOperaciones
     {
         public double Sumar(double a, double b)
         {

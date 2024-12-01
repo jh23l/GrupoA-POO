@@ -10,6 +10,7 @@ namespace GrupoA_POO
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hola mundo");
         }
     }
 }

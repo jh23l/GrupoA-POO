@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculadoraBase\CalculadoraBase.cs" />
+    <Compile Include="CalculadoraCientifica\CalculadoraCientifica.cs" />
     <Compile Include="Empleado\Empleado.cs" />
     <Compile Include="Operaciones\IOperaciones.cs" />
     <Compile Include="Program.cs" />
