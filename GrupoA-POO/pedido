@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+
+public class Pedido
+{
+    // Atributos
+    public int NumeroPedido { get; set; }
+    public DateTime Fecha { get; set; }
+    public string Estado { get; private set; }
+    public List<string> Productos { get; set; }
+
+    // Constructor
+    public Pedido(int numeroPedido, DateTime fecha, List<string> productos)
+    {
+        NumeroPedido = numeroPedido;
+        Fecha = fecha;
+        Productos = productos;
+        Estado = "Pendiente"; // Estado inicial
+    }
+
+    // Métodos
+    public void ConfirmarPedido()
+    {
+        if (Estado == "Pendiente")
+        {
+            Estado = "Confirmado";
+            Console.WriteLine($"El pedido {NumeroPedido} ha sido confirmado.");
+        }
+        else
+        {
+            Console.WriteLine($"El pedido {NumeroPedido} no puede confirmarse porque está en estado '{Estado}'.");
+        }
+    }
+
+    public void CancelarPedido()
+    {
+        if (Estado == "Pendiente" || Estado == "Confirmado")
+        {
+            Estado = "Cancelado";
+            Console.WriteLine($"El pedido {NumeroPedido} ha sido cancelado.");
+        }
+        else
+        {
+            Console.WriteLine($"El pedido {NumeroPedido} no puede cancelarse porque está en estado '{Estado}'.");
+        }
+    }
+
+    // Método para mostrar información del pedido
+    public void MostrarInformacion()
+    {
+        Console.WriteLine($"Pedido N°: {NumeroPedido}\nFecha: {Fecha}\nEstado: {Estado}\nProductos: {string.Join(", ", Productos)}\n");
+    }
+}
+
+// Ejemplo de uso
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear una lista de productos
+        var productos = new List<string> { "Producto A", "Producto B", "Producto C" };
+
+        // Crear un pedido
+        var pedido = new Pedido(1, DateTime.Now, productos);
+
+        // Mostrar información del pedido
+        pedido.MostrarInformacion();
+
+        // Confirmar el pedido
+        pedido.ConfirmarPedido();
+
+        // Intentar cancelar el pedido después de confirmarlo
+        pedido.CancelarPedido();
+
+        // Mostrar información actualizada del pedido
+        pedido.MostrarInformacion();
+    }
+}
