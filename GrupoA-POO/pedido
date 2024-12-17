@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+
+public class Pedido
+{
+    // Atributos
+    public int NumeroPedido { get; set; }
+    public DateTime Fecha { get; set; }
+    public string Estado { get; private set; } // "Pendiente", "Confirmado", "Cancelado"
+    public List<string> Productos { get; set; }
+
+    // Constructor
+    public Pedido(int numeroPedido, DateTime fecha, List<string> productos)
+    {
+        NumeroPedido = numeroPedido;
+        Fecha = fecha;
+        Productos = productos;
+        Estado = "Pendiente";
+    }
+
+    // Métodos
+    public void ConfirmarPedido()
+    {
+        if (Estado == "Pendiente")
+        {
+            Estado = "Confirmado";
+            Console.WriteLine("El pedido ha sido confirmado.");
+        }
+        else
+        {
+            Console.WriteLine("El pedido no puede ser confirmado. Estado actual: " + Estado);
+        }
+    }
+
+    public void CancelarPedido()
+    {
+        if (Estado == "Pendiente")
+        {
+            Estado = "Cancelado";
+            Console.WriteLine("El pedido ha sido cancelado.");
+        }
+        else
+        {
+            Console.WriteLine("El pedido no puede ser cancelado. Estado actual: " + Estado);
+        }
+    }
+
+    // Método para mostrar detalles del pedido
+    public void MostrarDetalles()
+    {
+        Console.WriteLine("Número de pedido: " + NumeroPedido);
+        Console.WriteLine("Fecha: " + Fecha);
+        Console.WriteLine("Estado: " + Estado);
+        Console.WriteLine("Productos:");
+        foreach (var producto in Productos)
+        {
+            Console.WriteLine("- " + producto);
+        }
+    }
+}
